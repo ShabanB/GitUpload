@@ -31,7 +31,7 @@
       <MenuButton fx:id="menuBar" layoutX="-2.0" layoutY="132.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="174.0" text="Features">
         <items>
           <MenuItem fx:id="featureButtonOne" mnemonicParsing="false" onAction="#onFeatureButtonOne" text="User" />
-            <MenuItem mnemonicParsing="false" onAction="#onAdminSelected" text="Admin" />
+            <MenuItem fx:id="adminMenuItem" mnemonicParsing="false" onAction="#onAdminSelected" text="Admin" />
         </items>
       </MenuButton>
       <MenuButton fx:id="menuBar1" layoutX="-2.0" layoutY="163.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="174.0" text="Modules">

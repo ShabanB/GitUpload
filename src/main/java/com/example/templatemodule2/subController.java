@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
+
 
 
 
@@ -18,6 +20,11 @@ public class subController implements Initializable {
     public Label userTypeLabel;
     @FXML
     public TextField searchTextField;
+
+    private boolean subjectsInitialized = false;
+
+    @FXML
+    private MenuItem adminMenuItem;
 
     @FXML private Button addSubjectButton;
 
@@ -121,6 +128,10 @@ public class subController implements Initializable {
         }
     });
 
+        if (main.userType == 's') {
+            adminMenuItem.setVisible(false); // Hides Admin option for students
+        }
+
     }
 
 
@@ -153,20 +164,27 @@ public class subController implements Initializable {
     @FXML
     protected void onFeatureButtonOne()
     {
-        labelOne.setText("MATH001-Mathematics");
-        labelTwo.setText("ENG101-English");
-        labelThree.setText("ENGG1420-Programming");
-        labelFour.setText("CS201-Computer Science");
-        labelFive.setText("CHEM200-Chemistry");
-        labelSix.setText("BIO300-Biology");
-        labelSeven.setText("ENGG402-Engineering");
-        labelEight.setText("HIST101-History");
-        labelNine.setText("MUSIC102-Music");
-        labelTen.setText("PSYCHO100-Psychology");
-        labelEleven.setText("PHYS1010-Physics");
-        labelTweleve.setText("ENGG1210-Mechanics");
-        labelThirteen.setText("MATH1210-Calculus Two");
-        labelFourteen.setText("");
+        if(!subjectsInitialized) {
+            labelOne.setText("MATH001-Mathematics");
+            labelTwo.setText("ENG101-English");
+            labelThree.setText("ENGG1420-Programming");
+            labelFour.setText("CS201-Computer Science");
+            labelFive.setText("CHEM200-Chemistry");
+            labelSix.setText("BIO300-Biology");
+            labelSeven.setText("ENGG402-Engineering");
+            labelEight.setText("HIST101-History");
+            labelNine.setText("MUSIC102-Music");
+            labelTen.setText("PSYCHO100-Psychology");
+            labelEleven.setText("PHYS1010-Physics");
+            labelTweleve.setText("ENGG1210-Mechanics");
+            labelThirteen.setText("MATH1210-Calculus Two");
+            labelFourteen.setText("");
+
+            subjectsInitialized = true;
+        }
+
+
+        resetSubjectList();
     }
 
     @FXML
