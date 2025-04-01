@@ -3,18 +3,19 @@ package com.example.templatemodule2.essential;
 import java.util.ArrayList;
 
 public class Event {
-    private static int eventCounter = 1; // Tracks number of events
-    private String eventCode;
-    private String name;
-    private String description;
-    private String headerImage;
-    private String location;
-    private String dateTime;
-    private int capacity;
-    private String cost;
+    public static int eventCounter = 1; // Tracks number of events
+    public String eventCode;
+    public String name;
+    public String description;
+    public String headerImage;
+    public String location;
+    public String dateTime;
+    public int capacity;
+    public String cost;
+    public static int eventCount;
 
-    private ArrayList<String> registeredStudentNames;
-    private ArrayList<String> registeredStudentEmails;
+    public ArrayList<String> registeredStudentNames;
+    public ArrayList<String> registeredStudentEmails;
 
     public Event(String name, String description, String headerImage,
                  String location, String dateTime, int capacity, String cost) {

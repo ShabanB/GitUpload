@@ -36,7 +36,7 @@ public class MergedEventController {
     @FXML private Button viewEventDetailsButton, registerEventButton, viewRegisteredEventsButton;
 
     // Shared Event List
-    private static ArrayList<Event> eventList = new ArrayList<>();
+    public static ArrayList<Event> eventList = new ArrayList<>();
     private ArrayList<String> registeredEvents = new ArrayList<>();
 
     @FXML
@@ -51,7 +51,7 @@ public class MergedEventController {
         eventListView.getItems().clear();
 
 
-        Collections.sort(eventList, Comparator.comparing(event -> LocalDate.parse(event.getDate())));
+        //Collections.sort(eventList, Comparator.comparing(event -> LocalDate.parse(event.getDate())));
 
         for (Event event : eventList) {
             String capacityDisplay = "Capacity: " + event.getRegisteredCount() + " / " + event.getCapacity();
@@ -192,12 +192,12 @@ public class MergedEventController {
         TextField locationField = new TextField(selectedEvent.getLocation());
 
 
-        String[] dateTimeParts = selectedEvent.getDate().split(" ");
+        /*String[] dateTimeParts = selectedEvent.getDate().split(" ");
         DatePicker datePicker = new DatePicker(LocalDate.parse(dateTimeParts[0]));
         ComboBox<String> timePicker = createTimePicker();
         if (dateTimeParts.length > 1) {
             timePicker.setValue(dateTimeParts[1]);
-        }
+        }*/
 
         TextField capacityField = new TextField(String.valueOf(selectedEvent.getCapacity()));
         TextField costField = new TextField(selectedEvent.getCost());
@@ -228,8 +228,8 @@ public class MergedEventController {
                 new Label("Event Name:"), nameField,
                 new Label("Description:"), descriptionField,
                 new Label("Location:"), locationField,
-                new Label("Date:"), datePicker,
-                new Label("Time:"), timePicker,
+                //new Label("Date:"), datePicker,
+                //new Label("Time:"), timePicker,
                 new Label("Capacity:"), capacityField,
                 new Label("Cost:"), costField,
                 selectImageButton, imageLabel, previewImage
@@ -245,7 +245,7 @@ public class MergedEventController {
                 return new String[]{
                         nameField.getText(), descriptionField.getText(),
                         imageLabel.getText(), locationField.getText(),
-                        datePicker.getValue() + " " + timePicker.getValue(),
+                       // datePicker.getValue() + " " + timePicker.getValue(),
                         capacityField.getText(), costField.getText()
                 };
             }
@@ -316,8 +316,8 @@ public class MergedEventController {
         if (studentNames.isEmpty()) {
             studentListView.getItems().add("No students registered yet.");
         } else {
-            for (int i = 0; i < studentNames.size(); i++) {
-                studentListView.getItems().add(studentNames.get(i) + " - " + studentEmails.get(i));
+            for (int i = 0; i < main.students.length; i++) {
+                studentListView.getItems().add(main.students[i].getName() + " - " + main.students[i].getEmail());
             }
         }
 

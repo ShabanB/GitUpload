@@ -10,7 +10,8 @@ public class course extends subject{
     public String examDate;// /M/D/Y H:M w4 hour time
     public String location;
     public String teacher;
-    public static int courseCounter = 5;
+    public String subjectCode;
+    public static int courseCounter = 0;
 
 
     public course(String courseCode, String courseName, String section, String capacity, String lecture, String finalExam, String location, String teacher) {
