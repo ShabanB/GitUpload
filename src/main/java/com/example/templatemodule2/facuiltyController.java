@@ -303,8 +303,8 @@ public class facuiltyController implements Initializable {
                 }
             }
             coursesOfferedBox.setText("");
-            main.facuilties[main.facCounter] = f;
-            main.facCounter++;
+            main.facuilties[facuilty.facCounter] = f;
+            facuilty.facCounter++;
         }
         else if (addButton.getText().equals("Save"))
         {
